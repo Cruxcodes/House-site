@@ -5,6 +5,8 @@ import { ReactComponent as ArrowIcon } from "../assets/svg/keyboardArrowRightIco
 import visibilityIcon from "../assets/svg/visibilityIcon.svg";
 import user from '../assets/svg/personIcon.svg'
 import hide from '../assets/svg/lockIcon.svg'
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { sign } from "crypto";
 
 export function SignIn() {
   const [showPassword, setShowPassword] = useState<boolean>(false);
@@ -17,8 +19,21 @@ export function SignIn() {
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setFormData((prev) => ({ ...prev, [e.target.id]: e.target.value }));
-    console.log(e.currentTarget.value);
   };
+
+  const handleSubmit = async (e:any) =>{
+    e.preventDefault();
+    try{
+      const auth = getAuth();
+      const signIn = await signInWithEmailAndPassword(auth, email, password);
+      if(signIn.user){
+        navigate('/');
+      }
+      console.log('I have been authenticated')
+    }catch(ex){
+      console.log(ex)
+    }
+  }
 
   return (
     <>
@@ -28,7 +43,7 @@ export function SignIn() {
         </header>
 
         <main className="sign">
-          <form action="#" className="sign__form">
+          <form action="#" className="sign__form" onSubmit={handleSubmit}> 
             <div className="sign__form-div">
               <img src={user} alt="" style={{marginLeft:'5px'}}/>
               <input
@@ -67,7 +82,7 @@ export function SignIn() {
 
             <div className="sign__Bar">
               <p className="sign__Bar-text sign__forgotPassword">Sign In</p>
-              <button className="sign__Bar-button" type="button">
+              <button className="sign__Bar-button" type="submit">
                 <ArrowIcon fill="#ffffff" width="34px" height="34px" className="sign__Bar-arrow"/>
               </button>
             </div>

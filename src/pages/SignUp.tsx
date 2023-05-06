@@ -20,6 +20,11 @@ interface FormData {
   password?: string;
 }
 
+interface FormDataWithTimeStamp extends FormData {
+  timeStamp: number;
+}
+
+
 export function SignUp() {
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [formData, setFormData] = useState<FormData>({
@@ -35,7 +40,6 @@ export function SignUp() {
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setFormData((prev) => ({ ...prev, [e.target.id]: e.target.value }));
-    console.log(e.target);
   };
 
   const handleSubmit = async (e: any) => {
@@ -50,9 +54,12 @@ export function SignUp() {
       const user = userCredentials.user;
       updateProfile(auth.currentUser!, { displayName: name });
 
-      const formDataCopy: FormData = { ...formData };
+      const formDataCopy: any = { ...formData };
       delete formDataCopy.password;
-      navigate("/");
+      formDataCopy.timeStamp = serverTimestamp();
+
+      await setDoc(doc(db, 'users' , user.uid), formDataCopy);
+      navigate("/sign-in");
     } catch (ex) {
       console.log(ex);
     }
