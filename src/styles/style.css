@@ -85,10 +85,9 @@
   box-sizing: border-box;
   border: none;
   border-radius: 20px;
-  padding: 10px 10px 10px;
+  padding: 20px 10px;
   position: relative;
   z-index: 31231;
-  transition: 0.3s;
 }
 .sign__form input:focus {
   background: transparent;
@@ -116,8 +115,8 @@
 }
 .sign__form-div {
   position: relative;
-  border-radius: 20px;
-  margin: 20px auto;
+  border-radius: 40px;
+  margin: 40px auto;
   overflow: hidden;
   display: flex;
   position: relative;

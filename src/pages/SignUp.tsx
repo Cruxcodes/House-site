@@ -14,15 +14,13 @@ import user from "../assets/svg/personIcon.svg";
 import hide from "../assets/svg/lockIcon.svg";
 import nameIcon from "../assets/svg/badgeIcon.svg";
 
-
+interface FormData {
+  name: string;
+  email: string;
+  password?: string;
+}
 
 export function SignUp() {
-  interface FormData {
-    name: string;
-    email: string;
-    password: string;
-  }
-
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [formData, setFormData] = useState<FormData>({
     name: "",
@@ -37,7 +35,7 @@ export function SignUp() {
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setFormData((prev) => ({ ...prev, [e.target.id]: e.target.value }));
-    console.log(e.currentTarget.value);
+    console.log(e.target);
   };
 
   const handleSubmit = async (e: any) => {
@@ -47,13 +45,13 @@ export function SignUp() {
       const userCredentials = await createUserWithEmailAndPassword(
         auth,
         email,
-        password
+        password || ""
       );
       const user = userCredentials.user;
       updateProfile(auth.currentUser!, { displayName: name });
 
-      const formDataCopy:FormData = {...formData};
-      delete formDataCopy?.password;
+      const formDataCopy: FormData = { ...formData };
+      delete formDataCopy.password;
       navigate("/");
     } catch (ex) {
       console.log(ex);
