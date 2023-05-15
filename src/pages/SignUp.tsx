@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -61,7 +62,7 @@ export function SignUp() {
       await setDoc(doc(db, 'users' , user.uid), formDataCopy);
       navigate("/sign-in");
     } catch (ex) {
-      console.log(ex);
+      toast.error('Something went wrong with registration');
     }
   };
 

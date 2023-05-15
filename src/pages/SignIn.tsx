@@ -5,6 +5,7 @@ import { ReactComponent as ArrowIcon } from "../assets/svg/keyboardArrowRightIco
 import visibilityIcon from "../assets/svg/visibilityIcon.svg";
 import user from '../assets/svg/personIcon.svg'
 import hide from '../assets/svg/lockIcon.svg'
+import { toast } from "react-toastify";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { sign } from "crypto";
 
@@ -31,7 +32,7 @@ export function SignIn() {
       }
       console.log('I have been authenticated')
     }catch(ex){
-      console.log(ex)
+      toast.error("Bad User Credentials");
     }
   }
 

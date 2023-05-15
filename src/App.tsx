@@ -1,8 +1,10 @@
-import React from 'react';
-import './App.css';
-import * as house from './pages'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
+import React from "react";
+import "./App.css";
+import * as house from "./pages";
+import { ToastContainer } from "react-toastify";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import "react-toastify/dist/ReactToastify.css";
 function App() {
   return (
     <div className="App">
@@ -17,6 +19,7 @@ function App() {
         </Routes>
         <Navbar />
       </Router>
+      <ToastContainer />
     </div>
   );
 }
