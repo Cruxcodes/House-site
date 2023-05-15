@@ -21,11 +21,6 @@ interface FormData {
   password?: string;
 }
 
-interface FormDataWithTimeStamp extends FormData {
-  timeStamp: number;
-}
-
-
 export function SignUp() {
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [formData, setFormData] = useState<FormData>({
