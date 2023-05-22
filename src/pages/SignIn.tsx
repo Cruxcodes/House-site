@@ -30,7 +30,6 @@ export function SignIn() {
       if(signIn.user){
         navigate('/');
       }
-      console.log('I have been authenticated')
     }catch(ex){
       toast.error("Bad User Credentials");
     }

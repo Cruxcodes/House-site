@@ -23,6 +23,7 @@ interface FormData {
 
 export function SignUp() {
   const [showPassword, setShowPassword] = useState<boolean>(false);
+
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -45,8 +46,9 @@ export function SignUp() {
       const userCredentials = await createUserWithEmailAndPassword(
         auth,
         email,
-        password || ""
+        password!
       );
+      
       const user = userCredentials.user;
       updateProfile(auth.currentUser!, { displayName: name });
 
