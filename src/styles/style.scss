@@ -34,7 +34,7 @@
 }
 
 .container {
-  width: calc(100% - 80px);
+  // width: calc(100% - 80px);
   padding: 20px;
   box-sizing: border-box;
 
@@ -56,14 +56,14 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   box-sizing: border-box;
   max-width: 500px;
   width: 100%;
   margin: 0px auto;
 
   &__form {
-    img{
+    img {
       z-index: 121212;
     }
     input:-webkit-autofill,
@@ -96,8 +96,6 @@
       }
     }
 
-
-
     &-passwordInputDiv {
       position: relative;
       img:last-child {
@@ -107,7 +105,7 @@
         right: 5px;
         z-index: 1000000000;
       }
-      .hide{
+      .hide {
         position: relative;
         margin-left: 5px;
       }
@@ -191,6 +189,80 @@
     &:hover {
       &-button {
         transform: translateY(-2px);
+      }
+    }
+  }
+}
+
+// This is the profile page
+.profile {
+  &__header {
+    font-size: 2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    button {
+      height: fit-content;
+      background: rgb(99, 99, 99);
+      width: fit-content;
+      color: white;
+      font-weight: bold;
+      padding: 10px 30px;
+      outline: none;
+      cursor: pointer;
+      border: none;
+      border-radius: 20px;
+      box-shadow: 0px 0px 0px black;
+      transition: 0.2s;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.466);
+      }
+    }
+  }
+  .details {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2em;
+
+    &__changePersonalDetails {
+      font-weight: bold;
+      cursor: pointer;
+      color: green;
+    }
+  }
+
+  .card {
+    input {
+      display: block;
+      border: none;
+      width: 100%;
+      outline: none;
+      box-sizing: border-box;
+      border-radius: 20px;
+      padding: 20px 10px;
+      margin: 10px auto;
+      background: #7e7a7a94;
+      color: #ffffff;
+
+      &[type="submit"] {
+        background: rgb(99, 99, 99);
+        width: fit-content;
+        margin: 30px auto;
+        padding: 15px 30px;
+        cursor: pointer;
+        box-shadow: 0px 0px 0px black;
+        transition: 0.2s;
+
+        &:hover {
+          box-shadow: 6px 6px 2px rgba(0, 0, 0, 0.466);
+        }
+
+        &:focus {
+          background: #000;
+          box-shadow: 6px 6px 2px rgba(0, 0, 0, 0.466);
+        }
       }
     }
   }
