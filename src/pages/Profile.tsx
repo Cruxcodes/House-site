@@ -27,8 +27,8 @@ export function Profile() {
     navigate("/sign-in");
   };
 
-  const onSubmit = async () => {
-    console.log("hello");
+  const onSubmit = async (e:any ) => {
+    e.preventDefault();
     try {
       if (auth.currentUser?.displayName !== name) {
         // Update display name in firebase
@@ -39,8 +39,10 @@ export function Profile() {
         // Update in firestore
         const userRef = doc(db, "users", auth.currentUser!.uid);
         await updateDoc(userRef, {
-          name,
+          name: name,
         });
+        console.log(auth.currentUser)
+        setChangeDetails((prev) => !prev);
       }
     } catch (ex) {
       toast.error('Could not update the user profile')
@@ -70,7 +72,7 @@ export function Profile() {
         </div>
 
         <div className="profile__card card">
-          <form action="" autoComplete="off">
+          <form action="" autoComplete="off" onSubmit={onSubmit}>
             <label htmlFor="name">Profile Name:</label>
             <input
               type="text"
@@ -89,7 +91,8 @@ export function Profile() {
               value={email}
               onChange={onChange}
             />
-            <input type="submit" value="Make Changes" />
+            <button type="submit">Submit</button>
+            {/* <input type="submit" value="Make Changes" onClick={onSubmit} /> */}
           </form>
         </div>
       </main>
