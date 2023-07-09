@@ -8,6 +8,7 @@ import hide from '../assets/svg/lockIcon.svg'
 import { toast } from "react-toastify";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { sign } from "crypto";
+import OAuth from "../components/OAuth";
 
 export function SignIn() {
   const [showPassword, setShowPassword] = useState<boolean>(false);
@@ -89,6 +90,7 @@ export function SignIn() {
           </form>
           {/* Google Oauth */}
 
+          <OAuth/> 
           <Link to="/sign-up" className="sign__forgotPassword">
             Sign Up Instead
           </Link>

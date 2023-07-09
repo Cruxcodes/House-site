@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
+$black-text : #000;
+
 *{
   font-family: 'Poppins', sans-serif;
 }
@@ -292,5 +294,14 @@
       background: #7e7a7a94;
       color: #ffffff; 
     }
+  }
+}
+
+.forgot{
+  button,input{
+    display: block;
+  }
+  button{
+    margin: 10px 0px;
   }
 }

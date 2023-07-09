@@ -274,4 +274,11 @@
   margin: 10px auto;
   background: rgba(126, 122, 122, 0.5803921569);
   color: #ffffff;
+}
+
+.forgot button, .forgot input {
+  display: block;
+}
+.forgot button {
+  margin: 10px 0px;
 }/*# sourceMappingURL=style.css.map */
