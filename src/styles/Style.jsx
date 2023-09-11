@@ -1,3 +1,3 @@
 export const light = {
-    "$black" : "#000",
+    $black : "#000",
 }

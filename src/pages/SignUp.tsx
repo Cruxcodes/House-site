@@ -14,6 +14,7 @@ import visibilityIcon from "../assets/svg/visibilityIcon.svg";
 import user from "../assets/svg/personIcon.svg";
 import hide from "../assets/svg/lockIcon.svg";
 import nameIcon from "../assets/svg/badgeIcon.svg";
+import { light } from "../styles/Style";
 
 interface FormData {
   name: string;
@@ -65,7 +66,7 @@ export function SignUp() {
 
   return (
     <>
-      <div className="container">
+      <div className="container ${light}">
         <header>
           <p className="container__title">Let's get you started!!</p>
         </header>

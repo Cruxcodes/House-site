@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ReactComponent as ArrowIcon } from "../assets/svg/keyboardArrowRightIcon.svg";
-import visibilityIcon from "../assets/svg/visibilityIcon.svg";
+import {ReactComponent as VisibilityIcon} from "../assets/svg/visibilityIcon.svg";
 import user from '../assets/svg/personIcon.svg'
 import hide from '../assets/svg/lockIcon.svg'
 import { toast } from "react-toastify";
@@ -18,6 +18,10 @@ export function SignIn() {
   const navigate = useNavigate();
 
   //
+
+  let circle = document.querySelector('.circle');
+  let bar = document.querySelector(".sign__Bar");
+
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setFormData((prev) => ({ ...prev, [e.target.id]: e.target.value }));
@@ -38,15 +42,15 @@ export function SignIn() {
 
   return (
     <>
-      <div className="container">
+      <div className="container signIn">
         <header>
           <p className="container__title">Welcome Back</p>
         </header>
 
         <main className="sign">
-          <form action="#" className="sign__form" onSubmit={handleSubmit}> 
+          <form action="#" className="sign__form" onSubmit={handleSubmit}>
             <div className="sign__form-div">
-              <img src={user} alt="" style={{marginLeft:'5px'}}/>
+              {/* <img src={user} alt="" style={{marginLeft:'5px'}}/> */}
               <input
                 type="email"
                 name="email"
@@ -59,7 +63,7 @@ export function SignIn() {
             </div>
 
             <div className="sign__form-passwordInputDiv sign__form-div">
-              <img src={hide} alt=""  className="hide"/>
+              {/* <img src={hide} alt=""  className="hide"/> */}
               <input
                 type={showPassword ? "text" : "password"}
                 className="passwordInpuDiv__input"
@@ -69,11 +73,10 @@ export function SignIn() {
                 onChange={onChange}
               />
               <div className="effect"></div>
-              <img
-                src={visibilityIcon}
-                alt="show"
-                onClick={() => setShowPassword((prevState) => !prevState)}
+              <VisibilityIcon
+                fill="#87c38f"
                 className="showPassword"
+                onClick={() => setShowPassword((prevState) => !prevState)}
               />
             </div>
 
@@ -82,15 +85,21 @@ export function SignIn() {
             </Link>
 
             <div className="sign__Bar">
+              <div className="circle"></div>
               <p className="sign__Bar-text sign__forgotPassword">Sign In</p>
               <button className="sign__Bar-button" type="submit">
-                <ArrowIcon fill="#ffffff" width="34px" height="34px" className="sign__Bar-arrow"/>
+                <ArrowIcon
+                  fill="#ffffff"
+                  width="34px"
+                  height="34px"
+                  className="sign__Bar-arrow"
+                />
               </button>
             </div>
           </form>
           {/* Google Oauth */}
 
-          <OAuth/> 
+          <OAuth />
           <Link to="/sign-up" className="sign__forgotPassword">
             Sign Up Instead
           </Link>
