@@ -23,15 +23,30 @@ export function ForgotPassword() {
     }
   };
   return (
-    <div className="forgot">
-      <h1>Forgot Password</h1>
-      <form action="#" onSubmit={onSubmit}>
-        <label htmlFor="email">Email address</label>
-        <input type="email" value={email} onChange={onChange}name="email" id="email" />
-        <button type="submit">Reset password</button>
-        <button className="resend">Resend password link</button>
-      </form>
-      <Link to="/sign-in">Sign In</Link>
+    <div className="forgot container">
+      <header>
+        <p className="container__title">Forgot Password</p>
+      </header>
+      <main className="sign">
+        <form action="#" className="sign__form" onSubmit={onSubmit}>
+          <label htmlFor="email">
+            <p>Email address</p>
+          </label>
+          <input
+            type="email"
+            value={email}
+            required
+            onChange={onChange}
+            name="email"
+            id="email"
+          />
+          <div className="buttons">
+            <button type="submit">Reset password</button>
+            <button className="resend">Resend password link</button>
+          </div>
+        </form>
+        <Link to="/sign-in" className="sign-in">Sign In Instead?</Link>
+      </main>
     </div>
   );
 }

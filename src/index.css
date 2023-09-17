@@ -12,3 +12,31 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+:root {
+  --dark-green: rgb(34, 109, 83);
+  --pistachio: rgb(135, 195, 143);
+  --lemon: rgb(244, 240, 187);
+  --tiffany-blue: rgb(131, 197, 190);
+  --black-text: #000;
+  --white: #ffffff;
+}
+
+[data-theme="light-theme"] {
+  --dark-green: rgb(34, 109, 83);
+  --pistachio: rgb(135, 195, 143);
+  --lemon: rgb(244, 240, 187);
+  --tiffany-blue: rgb(131, 197, 190);
+  --black-text: #000;
+  --white: #ffffff;
+}
+
+[data-theme="dark-theme"] {
+  --dark-green: black;
+  --pistachio: black;
+  --lemon: black;
+  --tiffany-blue: black;
+  --black-text: #000;
+  --white: red;
+}

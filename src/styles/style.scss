@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
-@import './partial';
+@import "./partial";
 * {
   font-family: "Poppins", sans-serif;
-  color: $black-text;
+  // color: $black-text;
   margin: 0px;
 }
 *::-webkit-scrollbar {
@@ -12,6 +12,7 @@
   background: $lemon;
   border-radius: 10px;
 }
+
 .layout {
   // display: flex;
   position: relative;
@@ -23,6 +24,7 @@
 }
 .navbar {
   position: sticky;
+  background: $lemon;
   @media screen and (max-width: 768px) {
     position: fixed;
     // height: 100vh;
@@ -45,7 +47,7 @@
     }
     &-list {
       background: white;
-      box-shadow: -9px 0px 50px rgba(117, 117, 117, 0.426);
+      box-shadow: -9px 0px 50px rgba($gray-shadow, 0.426);
       justify-content: space-between;
       height: 100vh;
       padding: 10px 20px;
@@ -87,7 +89,6 @@
     margin: auto;
   }
 }
-
 
 .sign {
   text-align: end !important;
@@ -138,7 +139,7 @@
 
     &-passwordInputDiv {
       position: relative;
-     .showPassword {
+      .showPassword {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
@@ -160,6 +161,7 @@
       position: relative;
       box-shadow: 2px 2px 10px #04040433;
       transition: 0.4s;
+      background: white;
 
       &:hover {
         box-shadow: 4px 8px 10px #04040462;
@@ -188,56 +190,51 @@
   &__forgotPassword {
     text-decoration: none;
     font-weight: 600;
+    color: $dark-green;
   }
   &__Bar {
     display: flex;
-    margin: 30px 0px;
     justify-content: center;
     position: relative;
     cursor: pointer;
     gap: 10px;
+    background: $pistachio;
+    width: fit-content;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    transition: 0.3s;
+    border-radius: 30px;
 
+    margin: 30px auto;
     * {
       cursor: pointer;
     }
 
-
-    .circle{
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background: #000;
-      border-radius: 50%;
-    }
-    &::before {
-      content: "";
-      position: absolute;
-      bottom: -7px;
-      left: 0px;
-      width: 0%;
-      transition: 0.5s;
-      height: 2px;
-      background: #3333336e;
-    }
-
-    &:hover::before {
-      width: 100%;
-      transition: 0.5s;
-    }
-
     &-text {
+      color: $white;
+
       margin: auto 0px;
     }
     &-button {
-      border-radius: 50%;
+      height: 100%;
+      position: absolute;
+      top: 50%;
+      padding: 0px;
+      transform: translateY(-40%);
+      right: -2px;
+      opacity: 0;
       border: none;
-      background: #091314b0;
-      box-shadow: 2px 2px 20px #0c0c0c57;
+      background: transparent;
+      transition: 0.5s;
     }
     &:hover {
-      &-button {
-        transform: translateY(-2px);
-      }
+      padding-right: 30px;
+      box-shadow: 0px 9px 6px rgb(94, 94, 94);
+      transform: translateY(-3px);
+    }
+
+    &:hover &-button {
+      opacity: 1;
     }
   }
 }
@@ -344,5 +341,76 @@
   }
   button {
     margin: 10px 0px;
+  }
+  .sign {
+    &__form {
+      text-align: start;
+
+      label {
+        p {
+          margin: 20px 0px;
+          font-weight: 500;
+          color: $pistachio;
+        }
+      }
+      input[type="email"] {
+        background: white;
+        color: $dark-green;
+      }
+
+      .buttons {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px 0px;
+        button {
+          border: 0px;
+          padding: 10px 20px;
+          font-weight: 500;
+          border-radius: 30px;
+          cursor: pointer;
+        }
+        button[type="submit"] {
+          background-image: linear-gradient(
+            130deg,
+            $pistachio,
+            $pistachio,
+            $lemon
+          );
+          background-size: 200%;
+          background-position: 0px 0px;
+          color: $lemon;
+          transition: .5s;
+        }
+        button[type="submit"]:hover {
+          color: $dark-green;
+          background-position: 100% 100%;
+          box-shadow: 12px 5px 10px gray;
+        }
+        .resend {
+          background: $lemon;
+          color: $pistachio;
+            background-image: linear-gradient(
+            240deg,
+            $lemon,
+            $lemon,
+            $pistachio
+          );
+          background-size: 200%;
+          background-position: 100% 100%;
+          color: $pistachio;
+          transition: .5s;
+        }
+        .resend:hover{
+          color: $dark-green;
+          background-position: 0% 0%;
+          box-shadow: -12px 5px 10px gray;
+        }
+      }
+    }
+    a {
+      color: $dark-green;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 10px;
+    }
   }
 }

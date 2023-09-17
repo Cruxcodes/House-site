@@ -1,4 +1,4 @@
-import React from "react";
+  import React from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ReactComponent as ArrowIcon } from "../assets/svg/keyboardArrowRightIcon.svg";
@@ -85,13 +85,10 @@ export function SignIn() {
             </Link>
 
             <div className="sign__Bar">
-              <div className="circle"></div>
               <p className="sign__Bar-text sign__forgotPassword">Sign In</p>
               <button className="sign__Bar-button" type="submit">
                 <ArrowIcon
                   fill="#ffffff"
-                  width="34px"
-                  height="34px"
                   className="sign__Bar-arrow"
                 />
               </button>

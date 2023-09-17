@@ -66,7 +66,7 @@ export function SignUp() {
 
   return (
     <>
-      <div className="container ${light}">
+      <div className="container">
         <header>
           <p className="container__title">Let's get you started!!</p>
         </header>
@@ -122,8 +122,6 @@ export function SignUp() {
               <button className="sign__Bar-button" type="submit">
                 <ArrowIcon
                   fill="#ffffff"
-                  width="34px"
-                  height="34px"
                   className="sign__Bar-arrow"
                 />
               </button>
